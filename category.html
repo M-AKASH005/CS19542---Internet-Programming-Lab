@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+    <link rel="stylesheet" href="q.css">
+    <style>
+        /* Additional CSS to style the Score button */
+        #scoreButton {
+            position: absolute; /* Position it absolutely */
+            top: 20px; /* Distance from the top */
+            right: 20px; /* Distance from the right */
+            padding: 10px 15px; /* Button padding */
+            background-color: rgba(43, 39, 39, 0.8); /* Button color */
+            color: white; /* Text color */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer on hover */
+            transition: background-color 0.3s;
+        }
+
+        #scoreButton:hover {
+            background-color: #070707; /* Change color on hover */
+        }
+
+        /* Styles for the score table */
+        #scoreContainer {
+            display: none; /* Hidden by default */
+            margin-top: 20px; /* Space above score */
+            color: white;
+            background-color: rgba(7, 7, 7, 0.8); /* Background color */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Merge borders */
+            margin-top: 10px; /* Space above the table */
+        }
+
+        th, td {
+            border: 1px solid white; /* Border color */
+            padding: 8px; /* Cell padding */
+            text-align: center; /* Center text */
+        }
+
+        th {
+            background-color: rgba(11, 11, 11, 0.8); /* Header background color */
+        }
+    </style>
+</head>
+<body>
+    <!-- Category Page with Category Buttons -->
+    <div id="categoryPage" class="page">
+        <h1>Select a Quiz Category</h1>
+        <div class="buttons-container">
+            <button onclick="window.location.href='cinema.html'">Cinema</button>
+            <button onclick="window.location.href='socialMedia.html'">Social Media</button>
+            <button onclick="window.location.href='generalKnowledge.html'">General Knowledge</button>
+            <button onclick="window.location.href='food.html'">Food</button>
+        </div>
+    </div>
+
+    <!-- Score Button -->
+    <button id="scoreButton" onclick="window.location.href='scores.html'">Top Scores</button>
+</body>
+
+
+    <!-- Score Display Container -->
+    <div id="scoreContainer"></div>
+
+    <script>
+       
+
+        // Function to display fetched scores in a table
+        function displayScores(scores) {
+            const scoreContainer = document.getElementById('scoreContainer');
+            scoreContainer.innerHTML = ''; // Clear previous scores
+
+            if (scores.length === 0) {
+                scoreContainer.innerHTML = '<p>No scores found.</p>'; // Message if no scores
+            } else {
+                // Create table structure
+                const table = document.createElement('table');
+                table.innerHTML = `
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                `;
+
+                // Get top 5 scores
+                const topScores = scores.slice(0, 5); // Only take the top 5 scores
+                topScores.forEach(score => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${score.name}</td><td>${score.score}</td>`;
+                    table.appendChild(row); // Append row to table
+                });
+
+                scoreContainer.appendChild(table); // Append table to score container
+            }
+
+            scoreContainer.style.display = 'block'; // Show the score container
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Scores</title>
+    <link rel="stylesheet" href="q.css">
+    <style>
+        body {
+            background-color: #121212; /* Background color for the page */
+            color: white; /* Text color */
+            font-family: Arial, sans-serif; /* Font family */
+            text-align: center; /* Center text */
+        }
+        h1 {
+            margin-top: 30px; /* Space above heading */
+        }
+        table {
+            width: 80%; /* Table width */
+            margin: 20px auto; /* Center the table */
+            border-collapse: collapse; /* Merge borders */
+        }
+        th, td {
+            border: 1px solid white; /* Border color */
+            padding: 10px; /* Cell padding */
+            text-align: center; /* Center text */
+        }
+        th {
+            background-color: rgba(0, 0, 0, 0.8); /* Header background color */
+        }
+        tr:hover {
+            background-color: rgba(83, 4, 4, 0.1); /* Highlight row on hover */
+        }
+        .action-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between action links */
+        }
+    </style>
+</head>
+<body>
+    <h1>Top Scores</h1>
+
+    <?php
+    // Include error reporting
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+    // Include the PHP script to retrieve scores
+    include 'retrieve_scores.php';
+    ?>
+</body>
+</html>

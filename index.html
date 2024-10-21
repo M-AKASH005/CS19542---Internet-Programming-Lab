@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Logo</title>
+    <link rel="stylesheet" href="q.css">
+</head>
+<body>
+    <!-- First Page with Logo -->
+    <div id="logoPage" class="page">
+        <img src="logo.png" alt="Quiz Logo" class="logo">
+    </div>
+
+    <script>
+        // Redirect to the category page after the logo animation ends
+        setTimeout(function() {
+            window.location.href = 'category.html'; // Make sure this is the correct path to your category page
+        }, 3000); // 3 seconds to match the logo animation duration
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* For full-screen background with no border */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    text-align: center; /* Ensure no scroll bars */
+}
+
+.page {
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    margin: 0;
+    padding: 0;
+}
+
+#categoryPage {
+    background-image: url('bg.jpg'); /* Ensure this path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* Ensure buttons are laid out properly */
+.buttons-container {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    gap: 20px; /* Adds space between buttons */
+}
+
+button {
+    width: 400px;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    transition: background-color 0.1s ease;
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #333333;
+}
+
+.hidden {
+    display: none;
+}
+
+.logo {
+    width: 1000px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fade-in-out 3s forwards;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
